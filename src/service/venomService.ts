@@ -1,20 +1,16 @@
 const venom = require('venom-bot');
-const express = require('express');
-const app = express();
 
-app.listen('5005');
+  venom.create().then((client: any) => start(client));
 
-  venom.create().then((client) => start(client));
-
-  function start(client) {
-    client.onMessage((message) => {
+  function start(client: any) {
+    client.onMessage((message: any) => {
       if (message.body === 'Hi' && message.isGroupMsg === false) {
         client
           .sendText(message.from, 'Welcome Venom 🕷')
-          .then((result) => {
+          .then((result: any) => {
             console.log('Result: ', result); //return object success
           })
-          .catch((erro) => {
+          .catch((erro: any) => {
             console.error('Error when sending: ', erro); //return object error
           });
       }
