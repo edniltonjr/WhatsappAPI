@@ -6,11 +6,7 @@ import './database';
 const app = express();
 
 app.use(express.json());
-app.use(routes)
-
-app.get('/', (req, res) => {
-    res.json({message: 'Hello World'});
-})
+app.use("/api", routes);
 
 const port = process.env.PORT || 3001;
 
